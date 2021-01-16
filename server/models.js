@@ -12,6 +12,16 @@ const getAllListings = (cb) => {
   Listing.find(cb);
 };
 
+const getListing = (home, cb) => {
+  Listing.find(home, cb);
+};
+
+const deleteListing = (home, cb) => {
+  Listing.deleteOne(home, cb);
+};
+
 module.exports = {
   getAllListings,
+  getListing,
+  deleteListing,
 };

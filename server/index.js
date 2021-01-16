@@ -21,6 +21,29 @@ app.get('/listings', (req, res) => {
   });
 });
 
+app.get('/listings/:home', (req, res) => {
+  const home = { home: Number(req.params.home) };
+  models.getListing(home, (err, results) => {
+    if (err) {
+      res.send(err);
+    } else {
+      res.status(200).send(results);
+    }
+  });
+});
+
+app.delete('/listings/:home', (req, res) => {
+  const home = { home: Number(req.params.home) };
+  models.deleteListing(home, (err, results) => {
+    if (err) {
+      res.send(err);
+    } else {
+      res.status(200).send(results);
+    }
+  });
+});
+
 app.listen(PORT, () => {
+  // eslint-disable-next-line no-console
   console.log(`listening on port ${PORT}`);
 });
