@@ -8,7 +8,7 @@ const mongoUri = 'mongodb://localhost/FEC-listing-details';
 // Create a Listing for home 101 (test home)
 describe('Database Test inserted data: house 101', () => {
   test('Should Create a Listing', () => Listing.create({
-    home: 101, title: 'Modular Home', location: 'Mars', rating: 1,
+    home: 101, title: 'Modular Home', location: 'Mars', rating: 1, photoUrls: ['https://feclistingphotos.s3.us-east-2.amazonaws.com/Mars/101/1.webp', 'https://feclistingphotos.s3.us-east-2.amazonaws.com/Mars/101/2.webp']
   })
     .then((results) => {
       expect(results).not.toBeNull();
@@ -29,9 +29,9 @@ describe('Database Test inserted data: house 101', () => {
     .then((results) => {
       expect(results).toHaveProperty('rating', 1);
     }));
-  test('Listing should have a rating', () => Listing.findOne({ home: 101 })
+  test('Listing should have a photoUrls property', () => Listing.findOne({ home: 101 })
     .then((results) => {
-      expect(results).toHaveProperty('rating', 1);
+      expect(results).toHaveProperty('photoUrls');
     }));
 });
 
