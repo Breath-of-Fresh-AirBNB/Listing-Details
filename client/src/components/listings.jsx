@@ -7,23 +7,22 @@ const Listings = ({ searchResults }) => (
     <h4> The List of Listings:</h4>
     { searchResults.map((home) => (
       <div id={home.home}>
-        <p id="home">
+        <div id="home">
           <b id="title">{home.title}</b>
           <br />
-          <b id="Rating">⭐  </b>
-          {home.rating}
-          <b id="location">・</b>
-          {home.location}
+          <b id="Rating">⭐ {home.rating}</b>
+          <span>  ・  </span>
+          <b id="location">{home.location}</b>
           <button id="share">📤 Share</button>
           <button id="save">❤️ Save</button>
-          <span id="photos">
-            <p id="p1" alt="1" src={home.photoUrls[0]} />
-            <img id="p2" alt="2" src={home.photoUrls[1]} />
-            <img id="p3" alt="3" src={home.photoUrls[2]} />
-            <img id="p4" alt="4" src={home.photoUrls[3]} />
-            <img id="p5" alt="5" src={home.photoUrls[4]} />
-          </span>
-        </p>
+          <div id="photos">
+            <div id="p1" alt="1" src={home.photoUrls[0]} />
+            <div id="p2" alt="2" src={home.photoUrls[1]} />
+            <div id="p3" alt="3" src={home.photoUrls[2]} />
+            <div id="p4" alt="4" src={home.photoUrls[3]} />
+            <div id="p5" alt="5" src={home.photoUrls[4]} />
+          </div>
+        </div>
         {/* {home.photoUrls.map((photo, i) => {
           i += 1;
           return (
