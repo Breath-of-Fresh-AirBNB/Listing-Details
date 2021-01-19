@@ -9,6 +9,7 @@ const listingSchema = new mongoose.Schema({
   title: String,
   location: String,
   rating: Number,
+  photoUrls: [String],
 });
 
 const Listing = mongoose.model('Listing', listingSchema);

@@ -12,6 +12,7 @@ describe('Server API tests', () => {
     expect(results).not.toBeNull();
     expect(results.data.length).toBeGreaterThanOrEqual(1);
     expect(results.data[0]).toHaveProperty('home', 101);
+    expect(results.data[0].photoUrls[0]).toBe("https://feclistingphotos.s3.us-east-2.amazonaws.com/Mars/101/1.webp");
   });
   test('Should DELETE Listing with specific id', async () => {
     const results = await axios.delete('http://localhost:3000/listings/101');
