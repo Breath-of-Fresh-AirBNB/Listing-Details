@@ -42,13 +42,13 @@ class App extends React.Component {
       if (location.includes(query.toLowerCase())) {
         matches.push(match);
       }
-      const title = match.title.toLowerCase();
-      if (title.includes(query.toLowerCase())) {
-        matches.push(match);
-      }
+      // const title = match.title.toLowerCase();
+      // if (title.includes(query.toLowerCase())) {
+      //   matches.push(match);
+      // }
     }
     if (matches.length === 0) {
-      alert('Sorry... it appears there are no listings for this location');
+      alert('Sorry... it appears there are no searchResults for this location');
     } else {
       this.setState({ searchResults: matches });
     }
