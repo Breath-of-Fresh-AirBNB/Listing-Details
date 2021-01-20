@@ -11,21 +11,15 @@ const Listings = ({ searchResults }) => (
         <b id="Rating">⭐ {home.rating}</b>
         <span>  ・  </span>
         <b id="location">{home.location}</b>
-        <button id="share">📤 Share</button>
-        <button id="save">❤️ Save</button>
+        <button id="share" className="btn btn-outline-success" type="submit">📤 Share</button>
+        <button id="save" className="btn btn-outline-success" type="submit">❤️ Save</button>
         <div id="photos">
-          <img className="p1" alt="1" src={home.photoUrls[0]} />
-          <img className="p2" alt="2" src={home.photoUrls[1]} />
-          <img className="p3" alt="3" src={home.photoUrls[2]} />
-          <img className="p4" alt="4" src={home.photoUrls[3]} />
-          <img className="p5" alt="5" src={home.photoUrls[4]} />
+          <img className="img-fluid" id="p1" alt="1" src={home.photoUrls[0]} />
+          <img className="img-fluid" id="p2" alt="2" src={home.photoUrls[1]} />
+          <img className="img-fluid" id="p3" alt="3" src={home.photoUrls[2]} />
+          <img className="img-fluid" id="p4" alt="4" src={home.photoUrls[3]} />
+          <img className="img-fluid" id="p5" alt="5" src={home.photoUrls[4]} />
         </div>
-        {/* {home.photoUrls.map((photo, i) => {
-          i += 1;
-          return (
-            <img alt="listing" className={home.home} id={i} src={photo} />
-          );
-        })} */}
       </div>
     ))}
   </div>
