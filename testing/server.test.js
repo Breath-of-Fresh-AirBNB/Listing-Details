@@ -1,5 +1,6 @@
 /* eslint-disable */
 const axios = require('axios');
+import 'regenerator-runtime/runtime';
 
 describe('Server API tests', () => {
   test('Should GET Listings from database', async () => {
