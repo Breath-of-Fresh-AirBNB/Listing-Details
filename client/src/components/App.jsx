@@ -1,10 +1,9 @@
 /* eslint-disable react/destructuring-assignment */
 /* eslint-disable import/extensions */
 import React from 'react';
-import ReactDOM from 'react-dom';
 import axios from 'axios';
-import Listings from './components/listings.jsx';
-import Search from './components/search.jsx';
+import Listings from './listings.jsx';
+import Search from './search.jsx';
 
 class App extends React.Component {
   constructor() {
@@ -64,4 +63,4 @@ class App extends React.Component {
   }
 }
 
-ReactDOM.render(<App />, document.getElementById('app'));
+export default App;
