@@ -5,14 +5,16 @@ import React from 'react';
 const Listings = ({ searchResults }) => (
   <div className="Listings">
     { searchResults.map((home) => (
-      <div className="home" id={home.home}>
+      <div className="home" key={home.home}>
         <b id="title">{home.title}</b>
         <br />
-        <b id="Rating">⭐ {home.rating}</b>
-        <span>  ・  </span>
-        <b id="location">{home.location}</b>
-        <button id="share" className="btn btn-outline-success" type="submit">📤 Share</button>
-        <button id="save" className="btn btn-outline-success" type="submit">❤️ Save</button>
+        <div className="infoBar">
+          <b id="ratingLocation">⭐ {home.rating} ・ {home.location}</b>
+          <div id="shareSave">
+            <button id="share" className="btn btn-outline-success" type="submit">📤 Share</button>
+            <button className="btn btn-outline-success" type="submit">❤️ Save</button>
+          </div>
+        </div>
         <div id="photos">
           <img className="img-fluid" id="p1" alt="1" src={home.photoUrls[0]} />
           <img className="img-fluid" id="p2" alt="2" src={home.photoUrls[1]} />

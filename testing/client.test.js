@@ -3,8 +3,9 @@
  */
 /* eslint-disable */
 const React = require('react');
-const { shallow, configure } = require('enzyme');
+const { shallow, mount, render, configure } = require('enzyme');
 const EnzymeAdapter = require('enzyme-adapter-react-15');
+const { toJson } = require('enzyme-to-json')
 import App from '../client/src/components/App.jsx';
 import Listings from '../client/src/components/Listings.jsx';
 import Search from '../client/src/components/Search.jsx';
@@ -27,14 +28,22 @@ const sample = [
 configure({ adapter: new EnzymeAdapter() });
 
 describe("App", () => {
+  // it("matches snapshot", () => {
+  //   const tree = shallow(<App />);
+  //   expect(toJson(tree)).toMatchSnapShot();
+  // });
   it("renders with no errors", () => {
-    shallow(<App />);
+    const data = sample;
+    const wrapper = mount(<App data={sample} />);
+    expect(wrapper.props().data).toEqual(data);
   });
 });
 
 describe("Listings", () => {
   it("renders with no errors", () => {
-    shallow(<Listings searchResults={sample} />);
+    const searchResults = sample;
+    const wrapper = mount(<Listings searchResults={sample} />);
+    expect(wrapper.props().searchResults).toEqual(searchResults);
   });
 });
 
