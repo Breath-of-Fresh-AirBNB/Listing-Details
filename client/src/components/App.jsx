@@ -2,8 +2,8 @@
 /* eslint-disable import/extensions */
 import React from 'react';
 import axios from 'axios';
-import Listings from './listings.jsx';
-import Search from './search.jsx';
+import Listings from './Listings.jsx';
+import Search from './Search.jsx';
 
 class App extends React.Component {
   constructor() {

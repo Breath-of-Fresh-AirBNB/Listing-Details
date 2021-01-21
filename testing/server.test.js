@@ -1,7 +1,3 @@
-/**
-* @jest-environment node
-*/
-
 /* eslint-disable */
 const axios = require('axios');
 import 'regenerator-runtime/runtime';
