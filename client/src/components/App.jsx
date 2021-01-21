@@ -3,7 +3,7 @@
 import React from 'react';
 import axios from 'axios';
 import Listings from './Listings.jsx';
-import Search from './Search.jsx';
+import Search from './search.jsx';
 
 class App extends React.Component {
   constructor() {
