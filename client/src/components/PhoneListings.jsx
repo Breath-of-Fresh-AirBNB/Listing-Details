@@ -3,19 +3,19 @@
 import React from 'react';
 
 const PhoneListings = ({ searchResults }) => (
-  <div classNameName="Listings">
+  <div className="Listings">
     { searchResults.map((home) => (
-      <div classNameName="home" key={home.home}>
+      <div className="home" key={home.home}>
         <div className="PhotoInfoBar">
           <span id="back"> Homes ・ Airbnb </span>
           <button id="photoShare" type="submit">📤</button>
           <button id="photoSave" type="submit">❤️</button>
         </div>
-        <div id="carouselExampleIndicators" className="carousel slide" data-bs-ride="carousel">
+        <div id="photoCarousel" className="carousel slide" data-ride="carousel">
           <ol className="carousel-indicators">
-            <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" className="active" />
-            <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" />
-            <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" />
+            <li data-target="#photoCarousel" data-slide-to="0" className="active" />
+            <li data-target="#photoCarousel" data-slide-to="1" />
+            <li data-target="#photoCarousel" data-slide-to="2" />
           </ol>
           <div className="carousel-inner">
             <div className="carousel-item active">
@@ -28,11 +28,11 @@ const PhoneListings = ({ searchResults }) => (
               <img src={home.photoUrls[2]} className="d-block w-100" alt="3" />
             </div>
           </div>
-          <a className="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-bs-slide="prev">
+          <a className="carousel-control-prev" href="#photoCarousel" role="button" data-slide="prev">
             <span className="carousel-control-prev-icon" aria-hidden="true" />
             <span className="visually-hidden">Previous</span>
           </a>
-          <a className="carousel-control-next" href="#carouselExampleIndicators" role="button" data-bs-slide="next">
+          <a className="carousel-control-next" href="#photoCarousel" role="button" data-slide="next">
             <span className="carousel-control-next-icon" aria-hidden="true" />
             <span className="visually-hidden">Next</span>
           </a>
