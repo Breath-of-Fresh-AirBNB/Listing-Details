@@ -12,7 +12,7 @@ const Listings = ({ searchResults }) => (
           <b id="ratingLocation">⭐ {home.rating} ・ {home.location}</b>
           <div id="shareSave">
             <button id="share" className="btn btn-outline-success" type="submit">📤 Share</button>
-            <button className="btn btn-outline-success" type="submit">❤️ Save</button>
+            <button id="save" className="btn btn-outline-success" type="submit">❤️ Save</button>
           </div>
         </div>
         <div id="photos">
@@ -21,6 +21,7 @@ const Listings = ({ searchResults }) => (
           <img className="img-fluid" id="p3" alt="3" src={home.photoUrls[2]} />
           <img className="img-fluid" id="p4" alt="4" src={home.photoUrls[3]} />
           <img className="img-fluid" id="p5" alt="5" src={home.photoUrls[4]} />
+          <button id="allPhotos" className="btn btn-outline-success" type="submit">Show all photos</button>
         </div>
       </div>
     ))}

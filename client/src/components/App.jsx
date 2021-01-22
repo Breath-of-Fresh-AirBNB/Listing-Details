@@ -3,7 +3,9 @@
 import React from 'react';
 import axios from 'axios';
 import Listings from './Listings.jsx';
-import Search from './search.jsx';
+import Search from './Search.jsx';
+import PhoneListings from './PhoneListings.jsx';
+import PhoneSearch from './PhoneSearch.jsx';
 
 class App extends React.Component {
   constructor() {
@@ -11,12 +13,24 @@ class App extends React.Component {
     this.state = {
       listings: [],
       searchResults: [],
+      screenWidth: window.innerWidth,
     };
+    this.handleResize = this.handleResize.bind(this);
     this.searchHandler = this.searchHandler.bind(this);
   }
 
   componentDidMount() {
+    window.addEventListener('resize', this.handleResize);
+    this.handleResize();
     this.getAll();
+  }
+
+  componentWillUnmount() {
+    window.addEventListener('resize', this.handleResize);
+  }
+
+  handleResize(e) {
+    this.setState({ screenWidth: window.innerWidth });
   }
 
   // get data from db
@@ -33,7 +47,6 @@ class App extends React.Component {
     e.preventDefault();
     const query = document.querySelector('#searchBar').value;
     document.querySelector('#searchBar').value = '';
-
     const matches = [];
     // eslint-disable-next-line no-restricted-syntax
     for (const match of this.state.listings) {
@@ -54,6 +67,14 @@ class App extends React.Component {
   }
 
   render() {
+    if (this.state.screenWidth < 744) {
+      return (
+        <div>
+          <PhoneListings searchResults={this.state.searchResults} />
+          <PhoneSearch searchHandler={this.searchHandler} />
+        </div>
+      );
+    }
     return (
       <div>
         <Search searchHandler={this.searchHandler} />
