@@ -8,8 +8,8 @@ const PhoneListings = ({ searchResults }) => (
       <div classNameName="home" key={home.home}>
         <div className="PhotoInfoBar">
           <span id="back"> Homes ・ Airbnb </span>
-          <button id="photoShare" type="submit">📤 Share</button>
-          <button id="photoSave" type="submit">❤️ Save</button>
+          <button id="photoShare" type="submit">📤</button>
+          <button id="photoSave" type="submit">❤️</button>
         </div>
         <div id="carouselExampleIndicators" className="carousel slide" data-bs-ride="carousel">
           <ol className="carousel-indicators">
@@ -19,13 +19,13 @@ const PhoneListings = ({ searchResults }) => (
           </ol>
           <div className="carousel-inner">
             <div className="carousel-item active">
-              <img src={home.photoUrls[0]} className="d-block w-100" alt="..." />
+              <img src={home.photoUrls[0]} className="d-block w-100" alt="1" />
             </div>
             <div className="carousel-item">
-              <img src={home.photoUrls[1]} className="d-block w-100" alt="..." />
+              <img src={home.photoUrls[1]} className="d-block w-100" alt="2" />
             </div>
             <div className="carousel-item">
-              <img src={home.photoUrls[2]} className="d-block w-100" alt="..." />
+              <img src={home.photoUrls[2]} className="d-block w-100" alt="3" />
             </div>
           </div>
           <a className="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-bs-slide="prev">
