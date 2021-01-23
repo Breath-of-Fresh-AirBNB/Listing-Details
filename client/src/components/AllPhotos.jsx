@@ -24,21 +24,27 @@ const AllPhotos = ({ searchResults }) => (
         </button>
       </div>
     </div>
-    <div id="allGrid" className="container">
-      <div className="row">
-        <div className="col">
-          <img className="img-fluid" alt="0" src={searchResults.photoUrls[0]} />
-        </div>
-      </div>
-      <div className="row">
-        <div className="col">
-          <img className="img-fluid" alt="1" src={searchResults.photoUrls[1]} />
-        </div>
-        <div className="col">
-          <img className="img-fluid" alt="2" src={searchResults.photoUrls[2]} />
-        </div>
-      </div>
-    </div>
+    {searchResults.photoUrls.map((photo, i) => {
+      if (i % 3 === 0) {
+        return (
+          <div id="allGrid" className="container">
+            <div className="row">
+              <div className="col">
+                {searchResults.photoUrls[0 + i] ? <img id="a" className="img-fluid" alt={i} src={searchResults.photoUrls[0 + i]} /> : null}
+              </div>
+            </div>
+            <div className="row">
+              <div className="col">
+                {searchResults.photoUrls[1 + i] ? <img id="b" className="img-fluid" alt={i} src={searchResults.photoUrls[1 + i]} /> : null}
+              </div>
+              <div className="col">
+                {searchResults.photoUrls[2 + i] ? <img id="c" className="img-fluid" alt={i} src={searchResults.photoUrls[2 + i]} /> : null}
+              </div>
+            </div>
+          </div>
+        );
+      }
+    })}
   </div>
 );
 
