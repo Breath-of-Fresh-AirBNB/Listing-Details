@@ -2,10 +2,10 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
 
-const PhoneListings = ({ searchResults }) => (
+const PhoneListings = ({ handleSelect, searchResults }) => (
   <div className="Listings">
     { searchResults.map((home) => (
-      <div className="home" key={home.home}>
+      <div onClick={() => handleSelect(home)} className="home" role="button" key={home.home} aria-hidden="true">
         <div className="infoBar">
           <span id="back">
             <svg id="backLeft" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-chevron-left" viewBox="0 0 16 16">
@@ -28,41 +28,13 @@ const PhoneListings = ({ searchResults }) => (
         <div id="photoCarousel" className="carousel slide" data-ride="carousel">
           <div className="carousel-inner">
             <div className="carousel-item active">
-              <img src={home.photoUrls[0]} className="d-block w-100" alt="1" />
+              <img src={home.photoUrls[0]} className="d-block w-100" alt="0" />
             </div>
-            <div className="carousel-item">
-              <img src={home.photoUrls[1]} className="d-block w-100" alt="2" />
-            </div>
-            <div className="carousel-item">
-              <img src={home.photoUrls[2]} className="d-block w-100" alt="3" />
-            </div>
-            <div className="carousel-item">
-              <img src={home.photoUrls[3]} className="d-block w-100" alt="4" />
-            </div>
-            <div className="carousel-item">
-              <img src={home.photoUrls[4]} className="d-block w-100" alt="5" />
-            </div>
-            <div className="carousel-item">
-              <img src={home.photoUrls[5]} className="d-block w-100" alt="6" />
-            </div>
-            <div className="carousel-item">
-              <img src={home.photoUrls[6]} className="d-block w-100" alt="7" />
-            </div>
-            <div className="carousel-item">
-              <img src={home.photoUrls[7]} className="d-block w-100" alt="8" />
-            </div>
-            <div className="carousel-item">
-              <img src={home.photoUrls[8]} className="d-block w-100" alt="9" />
-            </div>
-            <div className="carousel-item">
-              <img src={home.photoUrls[9]} className="d-block w-100" alt="10" />
-            </div>
-            <div className="carousel-item">
-              <img src={home.photoUrls[10]} className="d-block w-100" alt="11" />
-            </div>
-            <div className="carousel-item">
-              <img src={home.photoUrls[11]} className="d-block w-100" alt="12" />
-            </div>
+            {home.photoUrls.map((photo, i) => (
+              <div className="carousel-item">
+                <img src={photo} className="d-block w-100" alt={0 + i} />
+              </div>
+            ))}
           </div>
           <a className="carousel-control-prev" href="#photoCarousel" role="button" data-slide="prev">
             <span className="carousel-control-prev-icon" aria-hidden="true" />
@@ -77,7 +49,7 @@ const PhoneListings = ({ searchResults }) => (
         <br />
         <div className="infoBar">
           <b id="ratingLocation">
-            ⭐
+            <b className="star">★</b>
             {home.rating}
             ・
             {home.location}

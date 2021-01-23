@@ -85,7 +85,10 @@ class App extends React.Component {
     if (this.state.screenWidth < 744) {
       return (
         <div>
-          <PhoneListings searchResults={this.state.searchResults} />
+          <PhoneListings
+            searchResults={this.state.searchResults}
+            handleSelect={this.handleSelect}
+          />
           <PhoneSearch searchHandler={this.searchHandler} />
         </div>
       );

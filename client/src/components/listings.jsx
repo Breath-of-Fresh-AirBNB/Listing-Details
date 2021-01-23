@@ -10,7 +10,7 @@ const Listings = ({ handleSelect, searchResults, handleAllPhotos }) => (
         <br />
         <div className="infoBar">
           <b id="ratingLocation">
-            ⭐
+            <b className="star">★</b>
             {home.rating}
             ・
             {home.location}

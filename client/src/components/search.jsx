@@ -5,7 +5,7 @@ import React from 'react';
 const Search = ({ searchHandler }) => (
   <nav id="nav" className="navbar navbar-expand-lg navbar-light bg-light">
     <div className="container-fluid">
-      <img alt="Airbnb logo" id="logo" src="https://assets.stickpng.com/images/580b57fcd9996e24bc43c513.png" />
+      <img alt="Airbnb logo" id="logo" src="../../icons/logo.png" />
       <form className="d-flex" onSubmit={searchHandler}>
         <input id="searchBar" className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
       </form>
