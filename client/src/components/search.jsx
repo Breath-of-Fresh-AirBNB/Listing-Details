@@ -9,7 +9,7 @@ const Search = ({ searchHandler }) => (
       <form className="d-flex" onSubmit={searchHandler}>
         <input id="searchBar" className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
       </form>
-      <div className="right">
+      <div id="right">
         <button id="hostLink" className="btn btn-outline-success" type="submit">Become a host</button>
         <button id="region" className="btn btn-outline-success" type="submit">
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-globe2" viewBox="0 0   16 16">

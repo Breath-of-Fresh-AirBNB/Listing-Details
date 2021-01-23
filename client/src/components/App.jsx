@@ -6,6 +6,7 @@ import Listings from './Listings.jsx';
 import Search from './Search.jsx';
 import PhoneListings from './PhoneListings.jsx';
 import PhoneSearch from './PhoneSearch.jsx';
+import AllPhotos from './AllPhotos.jsx';
 
 class App extends React.Component {
   constructor() {
@@ -13,16 +14,22 @@ class App extends React.Component {
     this.state = {
       listings: [],
       searchResults: [],
+      selectedHome: {},
       screenWidth: window.innerWidth,
+      allPhotos: false,
     };
+    this.handleAllPhotos = this.handleAllPhotos.bind(this);
+    this.handleSelect = this.handleSelect.bind(this);
     this.handleResize = this.handleResize.bind(this);
     this.searchHandler = this.searchHandler.bind(this);
   }
 
   componentDidMount() {
+    if (this.state.searchResults) {
+      this.getAll(this.state.searchResults);
+    }
     window.addEventListener('resize', this.handleResize);
     this.handleResize();
-    this.getAll();
   }
 
   componentWillUnmount() {
@@ -31,6 +38,14 @@ class App extends React.Component {
 
   handleResize(e) {
     this.setState({ screenWidth: window.innerWidth });
+  }
+
+  handleSelect(home) {
+    this.setState({ searchResults: [home] });
+  }
+
+  handleAllPhotos(e) {
+    this.setState({ allPhotos: true });
   }
 
   // get data from db
@@ -75,10 +90,19 @@ class App extends React.Component {
         </div>
       );
     }
+    if (this.state.allPhotos) {
+      return (
+        <AllPhotos searchResults={this.state.searchResults[0]} />
+      );
+    }
     return (
       <div>
         <Search searchHandler={this.searchHandler} />
-        <Listings searchResults={this.state.searchResults} />
+        <Listings
+          handleSelect={this.handleSelect}
+          handleAllPhotos={this.handleAllPhotos}
+          searchResults={this.state.searchResults}
+        />
       </div>
     );
   }

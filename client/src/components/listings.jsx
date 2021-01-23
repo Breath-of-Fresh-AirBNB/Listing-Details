@@ -2,10 +2,10 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
 
-const Listings = ({ searchResults }) => (
+const Listings = ({ handleSelect, searchResults, handleAllPhotos }) => (
   <div className="Listings">
     { searchResults.map((home) => (
-      <div className="home" key={home.home}>
+      <div onClick={() => handleSelect(home)} className="home" role="button" key={home.home} aria-hidden="true">
         <b id="title">{home.title}</b>
         <br />
         <div className="infoBar">
@@ -37,7 +37,7 @@ const Listings = ({ searchResults }) => (
           <img className="img-fluid" id="p3" alt="3" src={home.photoUrls[2]} />
           <img className="img-fluid" id="p4" alt="4" src={home.photoUrls[3]} />
           <img className="img-fluid" id="p5" alt="5" src={home.photoUrls[4]} />
-          <button id="allPhotos" className="btn btn-outline-success" type="submit">Show all photos</button>
+          <button onClick={() => handleAllPhotos()} id="allPhotos" className="btn btn-outline-success" type="submit">Show all photos</button>
         </div>
       </div>
     ))}
