@@ -1,10 +1,10 @@
 import React from 'react';
 
-const AllPhotos = ({ searchResults }) => (
+const AllPhotos = ({ handleBack, searchResults }) => (
   <div>
     <div className="infoBar">
       <div className="left">
-        <svg id="backLeft" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-chevron-left" viewBox="0 0 16 16">
+        <svg onClick={() => handleBack()} id="backLeft" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-chevron-left" viewBox="0 0 16 16">
           <path fillRule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z" />
         </svg>
       </div>
@@ -27,18 +27,18 @@ const AllPhotos = ({ searchResults }) => (
     {searchResults.photoUrls.map((photo, i) => {
       if (i % 3 === 0) {
         return (
-          <div id="allGrid" className="container">
+          <div id="allGrid" className="container" key={photo}>
             <div className="row">
               <div className="col">
-                {searchResults.photoUrls[0 + i] ? <img id="a" className="img-fluid" alt={i} src={searchResults.photoUrls[0 + i]} /> : null}
+                {searchResults.photoUrls[0 + i] ? <img id="a" className="img-fluid" alt={0 + i} src={searchResults.photoUrls[0 + i]} /> : null}
               </div>
             </div>
             <div className="row">
               <div className="col">
-                {searchResults.photoUrls[1 + i] ? <img id="b" className="img-fluid" alt={i} src={searchResults.photoUrls[1 + i]} /> : null}
+                {searchResults.photoUrls[1 + i] ? <img id="b" className="img-fluid" alt={1 + i} src={searchResults.photoUrls[1 + i]} /> : null}
               </div>
               <div className="col">
-                {searchResults.photoUrls[2 + i] ? <img id="c" className="img-fluid" alt={i} src={searchResults.photoUrls[2 + i]} /> : null}
+                {searchResults.photoUrls[2 + i] ? <img id="c" className="img-fluid" alt={2 + i} src={searchResults.photoUrls[2 + i]} /> : null}
               </div>
             </div>
           </div>

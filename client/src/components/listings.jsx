@@ -2,14 +2,16 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
 
-const Listings = ({ handleSelect, searchResults, handleAllPhotos }) => (
+const Listings = ({
+  handleSelect, searchResults, handleAllPhotos, handleLocation,
+}) => (
   <div className="Listings">
     { searchResults.map((home) => (
       <div onClick={() => handleSelect(home)} className="home" role="button" key={home.home} aria-hidden="true">
         <b id="title">{home.title}</b>
         <br />
         <div className="infoBar">
-          <b id="ratingLocation">
+          <b id="ratingLocation" onClick={() => handleLocation()} role="button" key={home.home} aria-hidden="true">
             <b className="star">★</b>
             {home.rating}
             ・

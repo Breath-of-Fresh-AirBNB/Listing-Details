@@ -7,6 +7,7 @@ import Search from './Search.jsx';
 import PhoneListings from './PhoneListings.jsx';
 import PhoneSearch from './PhoneSearch.jsx';
 import AllPhotos from './AllPhotos.jsx';
+import Location from './Location.jsx';
 
 class App extends React.Component {
   constructor() {
@@ -17,7 +18,11 @@ class App extends React.Component {
       selectedHome: {},
       screenWidth: window.innerWidth,
       allPhotos: false,
+      location: false,
+      back: true,
     };
+    this.handleBack = this.handleBack.bind(this);
+    this.handleLocation = this.handleLocation.bind(this);
     this.handleAllPhotos = this.handleAllPhotos.bind(this);
     this.handleSelect = this.handleSelect.bind(this);
     this.handleResize = this.handleResize.bind(this);
@@ -46,6 +51,14 @@ class App extends React.Component {
 
   handleAllPhotos(e) {
     this.setState({ allPhotos: true });
+  }
+
+  handleLocation(e) {
+    this.setState({ location: true });
+  }
+
+  handleBack(e) {
+    this.setState({ back: false });
   }
 
   // get data from db
@@ -82,20 +95,26 @@ class App extends React.Component {
   }
 
   render() {
-    if (this.state.screenWidth < 744) {
+    if (this.state.screenWidth < 744 && this.state.back) {
       return (
         <div>
           <PhoneListings
             searchResults={this.state.searchResults}
             handleSelect={this.handleSelect}
+            handleLocation={this.handleLocation}
           />
           <PhoneSearch searchHandler={this.searchHandler} />
         </div>
       );
     }
-    if (this.state.allPhotos) {
+    if (this.state.allPhotos && this.state.back) {
       return (
-        <AllPhotos searchResults={this.state.searchResults[0]} />
+        <AllPhotos handleBack={this.handleBack} searchResults={this.state.searchResults[0]} />
+      );
+    }
+    if (this.state.location && this.state.back) {
+      return (
+        <Location handleBack={this.handleBack} searchResults={this.state.searchResults[0]} />
       );
     }
     return (
@@ -104,6 +123,7 @@ class App extends React.Component {
         <Listings
           handleSelect={this.handleSelect}
           handleAllPhotos={this.handleAllPhotos}
+          handleLocation={this.handleLocation}
           searchResults={this.state.searchResults}
         />
       </div>

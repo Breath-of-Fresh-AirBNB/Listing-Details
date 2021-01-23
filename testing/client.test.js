@@ -9,6 +9,10 @@ const { toJson } = require('enzyme-to-json')
 import App from '../client/src/components/App.jsx';
 import Listings from '../client/src/components/Listings.jsx';
 import Search from '../client/src/components/Search.jsx';
+import PhoneListings from '../client/src/components/PhoneListings.jsx';
+import PhoneSearch from '../client/src/components/PhoneSearch.jsx';
+import AllPhotos from '../client/src/components/AllPhotos.jsx';
+
 
 const sample = [
   {
@@ -52,3 +56,26 @@ describe("Search", () => {
     shallow(<Search />);
   });
 });
+
+describe("PhoneListings", () => {
+  it("renders with no errors", () => {
+    const searchResults = sample;
+    const wrapper = mount(<PhoneListings searchResults={sample} />);
+    expect(wrapper.props().searchResults).toEqual(searchResults);
+  });
+});
+
+describe("PhoneSearch", () => {
+  it("renders with no errors", () => {
+    shallow(<PhoneSearch />);
+  });
+});
+
+describe("AllPhotos", () => {
+  it("renders with no errors", () => {
+    const searchResults = sample;
+    const wrapper = mount(<AllPhotos searchResults={sample} />);
+    expect(wrapper.props().searchResults).toEqual(searchResults);
+  });
+});
+
