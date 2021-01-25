@@ -1,4 +1,3 @@
-/* eslint-disable no-param-reassign */
 /* eslint-disable react/prop-types */
 import React from 'react';
 
@@ -7,7 +6,7 @@ const Search = ({ searchHandler }) => (
     <div className="container-fluid">
       <img alt="Airbnb logo" id="logo" src="../../icons/logo.png" />
       <form className="d-flex" onSubmit={searchHandler}>
-        <input id="searchBar" className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+        <input id="searchBar" className="form-control me-2" type="search" placeholder="Where are you going?" aria-label="Search" />
       </form>
       <div id="right">
         <button id="hostLink" className="btn btn-outline-success" type="submit">Become a host</button>

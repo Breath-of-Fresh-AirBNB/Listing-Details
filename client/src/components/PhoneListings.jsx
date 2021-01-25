@@ -1,11 +1,10 @@
-/* eslint-disable no-param-reassign */
 /* eslint-disable react/prop-types */
 import React from 'react';
 
 const PhoneListings = ({ handleSelect, searchResults, handleLocation }) => (
   <div className="Listings">
     { searchResults.map((home) => (
-      <div onClick={() => handleSelect(home)} className="home" role="button" key={home.home} aria-hidden="true">
+      <div onClick={() => handleSelect(home)} className="home" role="button" key="unique" aria-hidden="true">
         <div className="infoBar">
           <span id="back">
             <svg id="backLeft" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-chevron-left" viewBox="0 0 16 16">

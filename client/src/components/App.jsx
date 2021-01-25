@@ -15,11 +15,10 @@ class App extends React.Component {
     this.state = {
       listings: [],
       searchResults: [],
-      selectedHome: {},
       screenWidth: window.innerWidth,
       allPhotos: false,
       location: false,
-      back: true,
+      back: false,
     };
     this.handleBack = this.handleBack.bind(this);
     this.handleLocation = this.handleLocation.bind(this);
@@ -41,7 +40,7 @@ class App extends React.Component {
     window.addEventListener('resize', this.handleResize);
   }
 
-  handleResize(e) {
+  handleResize() {
     this.setState({ screenWidth: window.innerWidth });
   }
 
@@ -49,16 +48,26 @@ class App extends React.Component {
     this.setState({ searchResults: [home] });
   }
 
-  handleAllPhotos(e) {
-    this.setState({ allPhotos: true });
+  handleAllPhotos() {
+    this.setState({
+      allPhotos: true,
+      back: true,
+    });
   }
 
-  handleLocation(e) {
-    this.setState({ location: true });
+  handleLocation() {
+    this.setState({
+      location: true,
+      back: true,
+    });
   }
 
-  handleBack(e) {
-    this.setState({ back: false });
+  handleBack() {
+    this.setState({
+      back: false,
+      location: false,
+      allPhotos: false,
+    });
   }
 
   // get data from db
@@ -87,11 +96,7 @@ class App extends React.Component {
         matches.push(match);
       }
     }
-    if (matches.length === 0) {
-      alert('Sorry... it appears there are no searchResults for this location');
-    } else {
-      this.setState({ searchResults: matches });
-    }
+    this.setState({ searchResults: matches });
   }
 
   render() {
@@ -104,6 +109,19 @@ class App extends React.Component {
             handleLocation={this.handleLocation}
           />
           <PhoneSearch searchHandler={this.searchHandler} />
+        </div>
+      );
+    }
+    if (this.state.searchResults.length === 0) {
+      return (
+        <div style={{ backgroundImage: 'url(https://images.contentstack.io/v3/assets/bltfa2cefdbe7482368/blt3e5f0646ea372553/5f73919b419b304ab54c42d6/GoNear_Denver_2580w.jpg)', height: '500px' }}>
+          <Search searchHandler={this.searchHandler} />
+          <Listings
+            handleSelect={this.handleSelect}
+            handleAllPhotos={this.handleAllPhotos}
+            handleLocation={this.handleLocation}
+            searchResults={this.state.searchResults}
+          />
         </div>
       );
     }

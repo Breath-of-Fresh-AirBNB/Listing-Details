@@ -12,6 +12,7 @@ import Search from '../client/src/components/Search.jsx';
 import PhoneListings from '../client/src/components/PhoneListings.jsx';
 import PhoneSearch from '../client/src/components/PhoneSearch.jsx';
 import AllPhotos from '../client/src/components/AllPhotos.jsx';
+import Location from '../client/src/components/Location.jsx';
 
 
 const sample = [
@@ -28,6 +29,20 @@ const sample = [
       ]
   }
 ];
+
+const sampleA =
+  {
+      "_id": "6008fe45f8b3093164c1862e",
+      "home": 101,
+      "title": "Modular Home",
+      "location": "Mars",
+      "rating": 1,
+      "__v": 0,
+      "photoUrls": [
+          "https://feclistingphotos.s3.us-east-2.amazonaws.com/Mars/101/1.webp",
+          "https://feclistingphotos.s3.us-east-2.amazonaws.com/Mars/101/2.webp"
+      ]
+  };
 
 configure({ adapter: new EnzymeAdapter() });
 
@@ -73,9 +88,16 @@ describe("PhoneSearch", () => {
 
 describe("AllPhotos", () => {
   it("renders with no errors", () => {
-    const searchResults = sample;
-    const wrapper = mount(<AllPhotos searchResults={sample} />);
+    const searchResults = sampleA;
+    const wrapper = mount(<AllPhotos searchResults={sampleA} />);
     expect(wrapper.props().searchResults).toEqual(searchResults);
   });
 });
 
+describe("Location", () => {
+  it("renders with no errors", () => {
+    const searchResults = sample;
+    const wrapper = mount(<Location searchResults={sample} />);
+    expect(wrapper.props().searchResults).toEqual(searchResults);
+  });
+});
