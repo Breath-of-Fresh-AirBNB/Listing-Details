@@ -4,7 +4,7 @@ import React from 'react';
 const PhoneListings = ({ handleSelect, searchResults, handleLocation }) => (
   <div className="Listings">
     { searchResults.map((home) => (
-      <div onClick={() => handleSelect(home)} className="home" role="button" key="unique" aria-hidden="true">
+      <div onClick={() => handleSelect(home)} className="home" role="button" key={home.home} aria-hidden="true">
         <div className="infoBar">
           <span id="back">
             <svg id="backLeft" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-chevron-left" viewBox="0 0 16 16">
@@ -24,14 +24,14 @@ const PhoneListings = ({ handleSelect, searchResults, handleLocation }) => (
             </svg>
           </button>
         </div>
-        <div id="photoCarousel" className="carousel slide" data-ride="carousel">
-          <div className="carousel-inner">
-            <div className="carousel-item active">
-              <img src={home.photoUrls[0]} className="d-block w-100" alt="0" />
+        <div id="photoCarousel" className="carousel slide" data-ride="carousel" key={home.home}>
+          <div className="carousel-inner" key={home.home}>
+            <div className="carousel-item active" key={home.home}>
+              <img src={home.photoUrls[0]} className="d-block w-100" alt="0" key={home.home} />
             </div>
             {home.photoUrls.map((photo, i) => (
               <div className="carousel-item">
-                <img src={photo} className="d-block w-100" alt={0 + i} />
+                <img src={photo} className="d-block w-100" alt={0 + i} key={photo} />
               </div>
             ))}
           </div>

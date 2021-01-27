@@ -100,7 +100,7 @@ class App extends React.Component {
   }
 
   render() {
-    if (this.state.screenWidth < 744 && this.state.back) {
+    if (this.state.screenWidth < 744) {
       return (
         <div>
           <PhoneListings
