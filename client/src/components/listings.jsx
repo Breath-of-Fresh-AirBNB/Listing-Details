@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Listings = ({
   handleSelect, searchResults, handleAllPhotos, handleLocation,
@@ -32,14 +33,16 @@ const Listings = ({
             </button>
           </div>
         </div>
-        <div id="photos">
-          <img className="img-fluid" id="p1" alt="1" src={home.photoUrls[0]} />
-          <img className="img-fluid" id="p2" alt="2" src={home.photoUrls[1]} />
-          <img className="img-fluid" id="p3" alt="3" src={home.photoUrls[2]} />
-          <img className="img-fluid" id="p4" alt="4" src={home.photoUrls[3]} />
-          <img className="img-fluid" id="p5" alt="5" src={home.photoUrls[4]} />
-          <button onClick={() => handleAllPhotos()} id="allPhotos" className="btn btn-outline-success" type="submit">Show all photos</button>
-        </div>
+        <Link id="link" to={`/homes/${home.home}`}>
+          <div id="photos">
+            <img className="img-fluid" id="p1" alt="1" src={home.photoUrls[0]} />
+            <img className="img-fluid" id="p2" alt="2" src={home.photoUrls[1]} />
+            <img className="img-fluid" id="p3" alt="3" src={home.photoUrls[2]} />
+            <img className="img-fluid" id="p4" alt="4" src={home.photoUrls[3]} />
+            <img className="img-fluid" id="p5" alt="5" src={home.photoUrls[4]} />
+            <button onClick={() => handleAllPhotos()} id="allPhotos" className="btn btn-outline-success" type="submit">Show all photos</button>
+          </div>
+        </Link>
       </div>
     ))}
   </div>

@@ -6,6 +6,12 @@ const React = require('react');
 const { shallow, mount, render, configure } = require('enzyme');
 const EnzymeAdapter = require('enzyme-adapter-react-15');
 const { toJson } = require('enzyme-to-json')
+import {
+  HashRouter,
+  Route,
+  Switch,
+  Link,
+} from 'react-router-dom';
 import App from '../client/src/components/App.jsx';
 import Listings from '../client/src/components/Listings.jsx';
 import Search from '../client/src/components/Search.jsx';
