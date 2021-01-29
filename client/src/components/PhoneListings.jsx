@@ -33,7 +33,7 @@ const PhoneListings = ({ handleSelect, searchResults, handleLocation }) => (
                 <img src={home.photoUrls[0]} className="d-block w-100" alt="0" key={home.home} />
               </div>
               {home.photoUrls.map((photo, i) => (
-                <div className="carousel-item">
+                <div className="carousel-item" key={photo}>
                   <img src={photo} className="d-block w-100" alt={0 + i} key={photo} />
                 </div>
               ))}
