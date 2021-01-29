@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, HashRouter } from 'react-router-dom';
 
 const PhoneListings = ({ handleSelect, searchResults, handleLocation }) => (
   <div className="Listings">
@@ -26,28 +26,30 @@ const PhoneListings = ({ handleSelect, searchResults, handleLocation }) => (
             </svg>
           </button>
         </div>
-        <Link id="link" to={`/homes/${home.home}`}>
-          <div id="photoCarousel" className="carousel slide" data-ride="carousel" key={home.home}>
-            <div className="carousel-inner" key={home.home}>
-              <div className="carousel-item active" key={home.home}>
-                <img src={home.photoUrls[0]} className="d-block w-100" alt="0" key={home.home} />
-              </div>
-              {home.photoUrls.map((photo, i) => (
-                <div className="carousel-item" key={photo}>
-                  <img src={photo} className="d-block w-100" alt={0 + i} key={photo} />
+        <div id="photoCarousel" className="carousel slide" data-ride="carousel" key={home.home}>
+          <div className="carousel-inner" key={home.home}>
+            <HashRouter>
+              <Link id="link" to={`/homes/${home.home}`}>
+                <div className="carousel-item active" key={home.home}>
+                  <img src={home.photoUrls[0]} className="d-block w-100" alt="0" key={home.home} />
                 </div>
-              ))}
-            </div>
-            <a className="carousel-control-prev" href="#photoCarousel" role="button" data-slide="prev">
-              <span className="carousel-control-prev-icon" aria-hidden="true" />
-              <span className="visually-hidden">Previous</span>
-            </a>
-            <a className="carousel-control-next" href="#photoCarousel" role="button" data-slide="next">
-              <span className="carousel-control-next-icon" aria-hidden="true" />
-              <span className="visually-hidden">Next</span>
-            </a>
+                {home.photoUrls.map((photo, i) => (
+                  <div className="carousel-item" key={photo}>
+                    <img src={photo} className="d-block w-100" alt={0 + i} key={photo} />
+                  </div>
+                ))}
+              </Link>
+            </HashRouter>
           </div>
-        </Link>
+          <a className="carousel-control-prev" href="#photoCarousel" role="button" data-slide="prev">
+            <span className="carousel-control-prev-icon" aria-hidden="true" />
+            <span className="visually-hidden">Previous</span>
+          </a>
+          <a className="carousel-control-next" href="#photoCarousel" role="button" data-slide="next">
+            <span className="carousel-control-next-icon" aria-hidden="true" />
+            <span className="visually-hidden">Next</span>
+          </a>
+        </div>
         <b id="title">{home.title}</b>
         <br />
         <div className="infoBar">
