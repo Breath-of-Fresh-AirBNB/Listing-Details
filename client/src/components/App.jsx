@@ -80,7 +80,7 @@ class App extends React.Component {
 
   // get data from db
   getAll() {
-    axios.get('http://localhost:3001/listings')
+    axios.get('http://52.15.63.3:3001/listings')
       .then(({ data }) => {
         this.setState(
           { listings: data },

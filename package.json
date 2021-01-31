@@ -4,7 +4,7 @@
   "description": "Service for the listing details in our FEC for team Breath of Fresh AirBNB",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon server/index.js",
+    "start": "node database/seed.js && nodemon server/index.js",
     "dev:react": "webpack -d --watch",
     "seed": "node database/seed.js",
     "test": "jest --collectCoverage"
